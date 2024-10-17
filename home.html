@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMR</title>
+    <link rel="stylesheet" type="text/css" href="home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            border: none;
+        }
+        .head {
+            text-align: center;
+            font-size: 45px;
+        }
+        .one {
+            background-color: #A79277;
+            padding-bottom: 0.5px;
+            padding-top: 0.5px;
+            width: 100;
+        }
+        nav {
+            background-color: #D1BB9E;
+        }
+        nav a {
+            text-decoration: none;
+            color: black;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0px;
+            margin: 0px;
+            display: flex;
+            width: 100%;
+            justify-content: space-evenly;
+        }
+        nav li {
+            display: inline-block;
+            margin: 10px;
+        }
+        body {
+            line-height: 1.6;
+            margin: 0;
+            background-color:  #FFF2E1;
+            position: relative; /* Ensure relative positioning for the logo */
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        ul {
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        .logo {
+            position: absolute;
+            
+            top: 0px; /* Adjust as needed */
+            left: 0px; /* Adjust as needed */
+        }
+        .image{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 30px 10px 10px 10px;
+        }
+
+        footer {
+            background-color: #EAD8C0;
+            color: #0f0101;
+            padding: 20px 0;
+            text-align: center;
+            width: 100%;
+            bottom: 0;
+        }
+        
+        .footer-links {
+            margin-top: 3px 0px 3px;
+            text-align: right;
+        }
+        
+        .footer-links a {
+            color: #0f0101;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .footer-info {
+            float: left;
+            text-align: left;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="one">
+        <h1 class="head">Indian Medical Records</h1>
+    </div>
+    <nav>
+        <ul>
+            <li><a id="h" href="/home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="/login">Records</a></li>
+            <li><a href="/register">Register</a></li>
+        </ul>
+    </nav>
+    <img src="/imr.jpg" alt="Logo" class="logo" width="72px" height="72px"> <!-- Add the logo image here -->
+    <div class="image">
+        <img src="/imr1.jpg" alt="medical record" width="500px" height="300px">
+    </div>
+    <div class="container">
+        <h1 id="about">Indian Medical Records</h1>
+    
+        <p>The Indian Medical Records (IMR) database is a centralized repository designed to store and manage 
+            comprehensive health records of Indian citizens.</p>
+        
+        <h2>Key Features</h2>
+        <ul>
+            <li><strong>Purpose:</strong> Centralizing health records for all Indian citizens.</li>
+            <li><strong>Scope:</strong> Includes EHR, PHR, medical imaging data, lab results, prescriptions, and demographics.</li>
+            <li><strong>Data Collection:</strong> Automated entry from hospitals, clinics, pharmacies, etc.</li>
+            <li><strong>Security:</strong> Robust measures to protect confidentiality and integrity.</li>
+            <li><strong>Interoperability:</strong> Adherence to standards for seamless data exchange.</li>
+            <li><strong>Access:</strong> Restricted to authorized healthcare professionals and individuals.</li>
+            <li><strong>Health ID:</strong> Unique identifier assigned to each individual for record retrieval.</li>
+            <li><strong>Government Oversight:</strong> Compliance with relevant regulations and standards.</li>
+        </ul>
+        
+        <h2>Benefits</h2>
+        <ul>
+            <li>Improved healthcare coordination and clinical decision-making.</li>
+            <li>Reduced medical errors and enhanced public health surveillance.</li>
+            <li>Support for research, population health management, and proactive health management by individuals.</li>
+        </ul>
+        
+        <h2>Challenges</h2>
+        <ul>
+            <li>Funding constraints and technological infrastructure requirements.</li>
+            <li>Data quality issues and resistance to change.</li>
+            <li>Concerns about data privacy, security, and disparities in access to healthcare services.</li>
+        </ul>
+    </div>
+    <footer>
+        <div class="footer-info">
+            &copy; 2024 Jaswanth Kondeti | Email: jaswanthkondeti03@gmail.com
+        </div>
+        <div class="footer-links">
+            <a href="https://twitter.com/imr" target="_blank"><i class="fab fa-twitter"></i></a> 
+            <a href="mailto:jjaswanthk@gmail.com"><i class="far fa-envelope"></i></a> 
+            <a href="https://www.instagram.com/mr.jaswanth_03" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-instagram"></i>
+            </a>
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+</body>
+</html>

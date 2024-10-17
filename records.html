@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IMR records page</title>
+<style>
+    body {
+        background-color: #FFF2E1;
+    }
+
+    .reg{
+        text-align: center;
+    }
+    
+    .head{
+        text-align: center;
+        font-size: 35px;
+    }
+
+    .container {
+        max-width: 400px;
+        margin: 20px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #D1BB9E;
+    }
+
+    label {
+        font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        margin: 8px 0;
+        box-sizing: border-box;
+    }
+
+    input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+
+    .error {
+        color: red;
+    }
+</style>
+</head>
+<body>
+    <h2 class="head">Login Form</h2>
+<div class="container">
+    <form action="/login" method="post" onsubmit="return validateForm()">
+        <div>
+            <label for="aadhar">Aadhar Number (12 digits only):</label>
+            <input type="text" id="aadhar" name="aadhar" maxlength="12" pattern="\d{12}" 
+            title="Please enter 12 digits Aadhar number." required>
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <input type="submit" value="Submit">
+    </form>
+</div>
+<p class="reg">If you're not registered, <a href="/register">click here</a>
+     to register.</p>
+
+<script>
+    function validateForm() {
+        var aadharInput = document.getElementById("aadhar");
+        var aadharValue = aadharInput.value;
+        var passwordInput = document.getElementById("password");
+        var passwordValue = passwordInput.value;
+        var aadharPattern = /^\d{12}$/;
+
+        if (!aadharPattern.test(aadharValue)) {
+            alert("Please enter a valid Aadhar number (12 digits only).");
+            aadharInput.focus();
+            return false;
+        }
+
+
+        return true;
+    }
+</script>
+
+</body>
+</html>

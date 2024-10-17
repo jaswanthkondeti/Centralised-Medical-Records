@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Records</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            border: none;
+        }
+        body {
+            background-color: #FFF2E1;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            padding: 10px 0px 10px;
+            color: #333;
+            background-color: #A79277;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 30px;
+            color: #333;
+        }
+
+        #uploadForm {
+            width: 300px;
+            margin: 0 auto;
+            text-align: center;
+            margin-top: 30px;
+            border: 2px solid #ccc; /* Adding border */
+            padding: 20px;
+            border-radius: 10px; /* Rounded corners */
+        }
+
+        input[type="file"] {
+            display: block;
+            margin: 10px auto;
+        }
+
+        button[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        #pdfList {
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        #pdfList a {
+            display: block;
+            margin-bottom: 10px;
+            color: #333;
+            text-decoration: none;
+            border: 1px solid #ccc; /* Adding border */
+            padding: 10px; /* Adding padding */
+            border-radius: 5px; /* Rounded corners */
+            background-color: #fff; /* White background */
+        }
+
+        #pdfList a:hover {
+            color: #000;
+            font-weight: bold;
+            background-color: #f0f0f0; /* Light gray background on hover */
+        }
+    </style>
+</head>
+<body>
+    <h1>Indian Medical Record database</h1>
+    <h2 style="text-align: center;">Welcome User!</h2>
+    <form id="uploadForm" enctype="multipart/form-data" method="post">
+        <input type="file" name="pdfFile" accept=".pdf">
+        <button type="submit">Upload PDF</button>
+    </form>
+    <h2>Previous medical records of the patient</h2>
+    <div id="pdfList"></div>
+
+    <script>
+        document.getElementById('uploadForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(this);
+            const response = await fetch('/upload-pdf', {
+                method: 'POST',
+                body: formData
+            });
+            
+            const result = await response.json();
+            if (result.success) {
+                loadPDFList();
+            } else {
+                alert('Failed to upload PDF');
+            }
+        });
+
+        async function loadPDFList() {
+            const response = await fetch('/pdf-list');
+            const pdfList = await response.json();
+
+            const pdfListContainer = document.getElementById('pdfList');
+            pdfListContainer.innerHTML = '';
+
+            pdfList.forEach(pdf => {
+                const link = document.createElement('a');
+                link.href = pdf.path;
+                link.textContent = pdf.filename;
+                link.target = '_blank';
+                pdfListContainer.appendChild(link);
+                pdfListContainer.appendChild(document.createElement('br'));
+                link.style.backgroundColor = "#d4edda"; 
+            });
+        }
+
+        loadPDFList();
+    </script>
+</body>
+</html>
